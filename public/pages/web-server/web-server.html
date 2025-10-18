@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mandatory 1</title>
+    <title>Webserver</title>
+    <link rel="stylesheet" href="pages/web-server/modalstyle.css">
+
 </head>
 <body>
     <main>
@@ -13,10 +15,39 @@
         <h3><a href="/">Back to index</a></h3>
 
         <h3>Terminal commands</h3>
+
+        <button id="openModal">Show commands</button>
+
+            <div id="myModal" class="modal">
+
+                <div class="modal-content">
+
+                     <span class="close">&times;</span>
+                     <h2>Terminal Commands</h2>
+
+                     <pre>
+
+                     
+                     #start server -- use nodemon for easier dev
+                     nodemon app.js (change app.js to your main file name)
+                        -> make sure to get this installed for faster devolpment
+                              npm install nodemon
+
+                    #basic setup:
+                    npm install 
+                        -> this will install packages
+                        -> you will also need it to work on fetched repos
+
+                            </pre>
+                </div>  
+            </div>
+        
+
         <h3>How to route</h3>
         <h3>How to make your project easy to maintain</h3>
 
 
     </main>
+<script src="pages/web-server/modal.js"></script>
 </body>
 </html>
