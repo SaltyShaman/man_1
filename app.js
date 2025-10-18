@@ -20,6 +20,10 @@ app.get('/web-server', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/pages/web-server/web-server.html'));
 });
 
+app.get('/no-chatgpt', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/pages/no-chatgpt/no-chatgpt.html'));
+})
+
 const PORT = Number(process.env.PORT) || 8080;
 app.listen(PORT, () => {
     console.log('Server is running on port:', PORT); 

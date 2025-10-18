@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Webserver</title>
-    <link rel="stylesheet" href="pages/web-server/modalstyle.css">
+    <link rel="stylesheet" href="pages/web-server/terminalmodal.css">
+    <link rel="stylesheet" href="pages/web-server/web-server.css">
 
 </head>
 <body>
@@ -27,7 +28,6 @@
 
                      <pre>
 
-                     
                      #start server -- use nodemon for easier dev
                      nodemon app.js (change app.js to your main file name)
                         -> make sure to get this installed for faster devolpment
@@ -44,7 +44,17 @@
         
 
         <h3>How to route</h3>
+
+            <p>In your server file remember to add an endpoint for every page</p>
+            <p>Example: app.get('/', (req, res) => {
+                res.sendFile(path.join(__dirname, 'public/pages/frontend/index.html'));
+        }); </p>
+
+            <p>pay attention to if SEO is important</p>
+
         <h3>How to make your project easy to maintain</h3>
+            <p>New folder for every entity</p>
+            <p>Place all related files for the entity in same folder</p>
 
 
     </main>
