@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Seperate the backend from the frontend</title>
+    <link rel="stylesheet" href="/pages/seperate/seperate.css">
+    <link rel="stylesheet" href="/pages/seperate/seperatemodal.css">
 </head>
 <body>
     <main>
@@ -11,9 +13,26 @@
 
         <ul>
                     <h3><a href="/">Back to index</a></h3>
+                    <h3>Reasons to seperate</h3>
+                        <p>What should you be able to see as a end user</p>
+                        <p>Build a folder for the public use and folders backend infrastructure</p>
+                        <p class="clickable" id="renderQuestion">How do you render?</p>
+
+                     <!-- Modal -->
+                 <div id="renderModal" class="modal">
+                <div class="modal-content">
+                 <span class="close">&times;</span>
+                   <h3>How rendering works</h3>
+                     <p>Rendering is sending data from the backend to the frontend.</p>
+                    <p>If you don't render the data is never shown on the frontend.</p>
+                 </div>
+             </div>
 
 
         </ul>
     </main>
+
+<script src="/pages/seperate/modal.js"></script>
+
 </body>
 </html>
