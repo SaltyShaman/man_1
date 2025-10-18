@@ -3,37 +3,42 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 
 const app = express();
+
+// Compute __filename and __dirname once
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Serve everything in public
+// Serve static files from public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-// ------------------------PAGES -----------------------------
+// Set up EJS as the view engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// ------------------------ ROUTES -----------------------------
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/pages/frontend/index.html'));
+    res.render('index', { title: 'Mandatory 1' });
 });
 
-
 app.get('/web-server', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/pages/web-server/web-server.html'));
+    res.render('web-server', { title: 'How to start a web server' });
 });
 
 app.get('/no-chatgpt', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/pages/no-chatgpt/no-chatgpt.html'));
-})
+    res.render('no-chatgpt', { title: 'How to not use ChatGPT' });
+});
 
 app.get('/seperate', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/pages/seperate/seperate.html'));
-})
-
+    res.render('seperate', { title: 'Separate backend and frontend' });
+});
 
 app.get('/wishlist', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/pages/wishlist/wishlist.html'));
-})
+    res.render('wishlist', { title: 'Wishlist for elective' });
+});
 
+// ------------------------ PORT -------------------------------
 const PORT = Number(process.env.PORT) || 8080;
 app.listen(PORT, () => {
-    console.log('Server is running on port:', PORT); 
+    console.log('Server is running on port:', PORT);
 });
