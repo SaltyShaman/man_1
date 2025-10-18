@@ -1,0 +1,64 @@
+/* wishlist.css */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(180deg, #f0f0f5 0%, #dcdcdc 100%);
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* scroll-friendly */
+    padding: 2rem;
+}
+
+main {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Headings */
+h1 {
+    margin-bottom: 1rem;
+}
+
+h3 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+h3 a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+h3 a:hover {
+    text-decoration: underline;
+}
+
+/* Paragraphs */
+p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Code styling for .jsx */
+code {
+    background: #eef;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: monospace;
+}
