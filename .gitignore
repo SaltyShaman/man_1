@@ -70,62 +70,34 @@ web_modules/
 .env.*
 !.env.example
 
-# parcel-bundler cache (https://parceljs.org/)
+# Parcel, Vite, Next.js, Nuxt.js, Gatsby, SvelteKit, VuePress, Docusaurus, etc.
 .cache
 .parcel-cache
-
-# Next.js build output
 .next
 out
-
-# Nuxt.js build / generate output
 .nuxt
 dist
-
-# Gatsby files
-.cache/
-# Comment in the public line in if your project uses Gatsby and not Next.js
-# https://nextjs.org/blog/next-9-1#public-directory-support
-# public
-
-# vuepress build output
 .vuepress/dist
-
-# vuepress v2.x temp and cache directory
 .temp
-.cache
-
-# Sveltekit cache directory
 .svelte-kit/
-
-# vitepress build output
 **/.vitepress/dist
-
-# vitepress cache directory
 **/.vitepress/cache
-
-# Docusaurus cache and generated files
 .docusaurus
 
-# Serverless directories
-.serverless/
+# Build artifacts
+build/
+jspm_packages/
+lib-cov
+coverage
+*.lcov
 
-# FuseBox cache
-.fusebox/
+# OS-specific or IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.vscode-test/
 
-# DynamoDB Local files
-.dynamodb/
-
-# Firebase cache directory
-.firebase/
-
-# TernJS port file
-.tern-port
-
-# Stores VSCode versions used for testing VSCode extensions
-.vscode-test
-
-# yarn v3
+# Yarn v3
 .pnp.*
 .yarn/*
 !.yarn/patches
@@ -133,6 +105,9 @@ dist
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Optional: ignore package-lock.json inside node_modules if any
+node_modules/**/package-lock.json
 
 # Vite logs files
 vite.config.js.timestamp-*
