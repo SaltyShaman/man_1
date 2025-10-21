@@ -4,36 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link rel="stylesheet" href="/pages/seperate/seperate.css">
-    <link rel="stylesheet" href="/pages/seperate/seperatemodal.css">
+
+    <!-- Global CSS for header/footer -->
+    <link rel="stylesheet" href="/global.css">
+
+    <!-- Page-specific CSS -->
+    <% if (typeof css !== 'undefined' && css.length) { %>
+        <% css.forEach(function(file){ %>
+            <link rel="stylesheet" href="<%= file %>">
+        <% }) %>
+    <% } %>
 </head>
 <body>
-    <main>
-        <h1>Seperation of frontend and backend</h1>
+    <!-- Header -->
+    <%- include('partials/header', { title }) %>
 
-        <ul>
-                    <h3><a href="/">Back to index</a></h3>
-                    <h3>Reasons to seperate</h3>
-                        <p>What should you be able to see as a end user</p>
-                        <p>Build a folder for the public use and folders backend infrastructure</p>
-                        <p class="clickable" id="renderQuestion">How do you render?</p>
+    <main class="horizontal-wrapper">
+        <section class="seperate-text">
+            <h1>Separation of frontend and backend</h1>
+            <h3>Reasons to separate</h3>
+            <p>What should you be able to see as an end user?</p>
+            <p>Build a folder for the public use and folders for backend infrastructure.</p>
+            <p class="clickable" id="renderQuestion">How do you render?</p>
+        </section>
 
-                     <!-- Modal -->
-                 <div id="renderModal" class="modal">
+        <section class="seperate-image">
+            <!-- Modal -->
+            <div id="renderModal" class="modal">
                 <div class="modal-content">
-                 <span class="close">&times;</span>
-                   <h3>How rendering works</h3>
-                     <p>Rendering is sending data from the backend to the frontend.</p>
-                    <p>If you don't render the data is never shown on the frontend.</p>
-                    <p>You should make seperate connections for each use. Use DTOs if possible</p>
-                 </div>
-             </div>
-
-
-        </ul>
+                    <span class="close">&times;</span>
+                    <h3>How rendering works</h3>
+                    <p>Rendering is sending data from the backend to the frontend.</p>
+                    <p>If you don't render, the data is never shown on the frontend.</p>
+                    <p>You should make separate connections for each use. Use DTOs if possible.</p>
+                </div>
+            </div>
+        </section>
     </main>
 
-<script src="/pages/seperate/modal.js"></script>
+    <!-- Footer -->
+    <%- include('partials/footer') %>
 
+    <!-- Page-specific JS -->
+    <% if (typeof scripts !== 'undefined' && scripts.length) { %>
+        <% scripts.forEach(function(file){ %>
+            <script src="<%= file %>"></script>
+        <% }) %>
+    <% } %>
 </body>
 </html>

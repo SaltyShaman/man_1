@@ -4,32 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link rel="stylesheet" href="/pages/wishlist/wishlist.css">
-    <link rel="stylesheet" href="/pages/wishlist/wishlist-picture.css">
-    <link rel="stylesheet" href="/pages/wishlist/wishlist-modal.css">
+
+    <!-- Global CSS for header/footer -->
+    <link rel="stylesheet" href="/global.css">
+
+    <!-- Page-specific CSS -->
+    <% if (typeof css !== 'undefined' && css.length) { %>
+        <% css.forEach(function(file){ %>
+            <link rel="stylesheet" href="<%= file %>">
+        <% }) %>
+    <% } %>
 </head>
 <body>
-    <main>
-        <h1>Wishlist</h1>
+    <!-- Header -->
+    <%- include('partials/header', { title }) %>
 
-        <h3><a href="/">Back to index</a></h3>
-        <h3>Terminal usage for writing new folders and files</h3>
+    <main class="horizontal-wrapper">
+        <section class="wishlist-text">
+            <h1>Wishlist</h1>
+            <h3>Terminal usage for writing new folders and files</h3>
 
-        <h3>React</h3>
-        <p>Did you know that .jsx files work as both display and functionality?</p>
-        <p>React can send the data through routes</p>
+            <h3>React</h3>
+            <p>Did you know that <code>.jsx</code> files work as both display and functionality?</p>
+            <p>React can send data through routes.</p>
+        </section>
 
-        <div class="image-container">
-            <img id="wishlistImage" src="/pages/wishlist/ReactRoute.png" alt="In React routes you can easily send data back and forth" />
-        </div>
+        <section class="wishlist-image">
+            <div class="image-container">
+                <img id="wishlistImage" src="/pages/wishlist/ReactRoute.png" alt="In React routes you can easily send data back and forth" />
+            </div>
+        </section>
     </main>
 
+    <!-- Modal -->
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="modalImg">
         <div id="caption"></div>
     </div>
 
-    <script src="/pages/wishlist/wishlist-modal.js"></script>
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+
+    <!-- Page-specific JS -->
+    <% if (typeof scripts !== 'undefined' && scripts.length) { %>
+        <% scripts.forEach(function(file){ %>
+            <script src="<%= file %>"></script>
+        <% }) %>
+    <% } %>
 </body>
 </html>

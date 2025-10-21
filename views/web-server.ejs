@@ -4,60 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link rel="stylesheet" href="pages/web-server/terminalmodal.css">
-    <link rel="stylesheet" href="pages/web-server/web-server.css">
 
+    <!-- Global CSS for header/footer -->
+    <link rel="stylesheet" href="/global.css">
+
+    <!-- Page-specific CSS -->
+    <% if (typeof css !== 'undefined' && css.length) { %>
+        <% css.forEach(function(file){ %>
+            <link rel="stylesheet" href="<%= file %>">
+        <% }) %>
+    <% } %>
 </head>
 <body>
+    <!-- Header -->
+    <%- include('partials/header', { title: title }) %>
+
     <main>
-        <h1>How to start a web server</h1>
-        <h2>Please choose a topic:</h2>
+        <section class="web-server">
+            <h1>How to start a web server</h1>
+            <h2>Please choose a topic:</h2>
 
-        <h3><a href="/">Back to index</a></h3>
+            <h3>Terminal commands</h3>
+            <button id="openModal">Show commands</button>
 
-        <h3>Terminal commands</h3>
-
-        <button id="openModal">Show commands</button>
-
+            <!-- Modal -->
             <div id="myModal" class="modal">
-
                 <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Terminal Commands</h2>
+                    <pre>
+# Start server — use nodemon for easier development
+nodemon app.js (change app.js to your main file name)
+    -> Make sure to get this installed for faster development
+       npm install nodemon
 
-                     <span class="close">&times;</span>
-                     <h2>Terminal Commands</h2>
-
-                     <pre>
-
-                     #start server -- use nodemon for easier dev
-                     nodemon app.js (change app.js to your main file name)
-                        -> make sure to get this installed for faster devolpment
-                              npm install nodemon
-
-                    #basic setup:
-                    npm install 
-                        -> this will install packages
-                        -> you will also need it to work on fetched repos
-
-                            </pre>
+# Basic setup:
+npm install 
+    -> This will install all dependencies
+    -> You will also need it when working on fetched repos
+                    </pre>
                 </div>  
             </div>
-        
 
-        <h3>How to route</h3>
+            <h3>How to route</h3>
+            <p>In your server file, remember to add an endpoint for every page:</p>
+            <pre>
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/pages/frontend/index.html'));
+});
+            </pre>
+            <p>Pay attention to SEO if it’s important for your project.</p>
 
-            <p>In your server file remember to add an endpoint for every page</p>
-            <p>Example: app.get('/', (req, res) => {
-                res.sendFile(path.join(__dirname, 'public/pages/frontend/index.html'));
-        }); </p>
-
-            <p>pay attention to if SEO is important</p>
-
-        <h3>How to make your project easy to maintain</h3>
-            <p>New folder for every entity</p>
-            <p>Place all related files for the entity in same folder</p>
-
-
+            <h3>How to make your project easy to maintain</h3>
+            <p>Create a new folder for every entity.</p>
+            <p>Place all related files for the entity in the same folder.</p>
+        </section>
     </main>
-<script src="pages/web-server/modal.js"></script>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+
+    <!-- Page-specific JS -->
+    <% if (typeof scripts !== 'undefined' && scripts.length) { %>
+        <% scripts.forEach(function(file){ %>
+            <script src="<%= file %>"></script>
+        <% }) %>
+    <% } %>
 </body>
 </html>

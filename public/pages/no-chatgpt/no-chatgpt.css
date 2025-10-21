@@ -1,5 +1,6 @@
 /* no-chatgpt.css */
 
+/*   public/pages/no-chatgpt/no-chatgpt.css                  */
 /* Reset defaults */
 * {
     margin: 0;
@@ -13,42 +14,93 @@ body {
     color: #222;
     min-height: 100vh;
     display: flex;
-    justify-content: center;   /* horizontally center */
-    align-items: center;       /* vertically center */
-    padding: 1rem;
-    overflow-x: hidden;        /* prevents horizontal scroll */
+    flex-direction: column; /* Header, main, footer stacked vertically */
 }
 
 main {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* center horizontally */
+    align-items: center;     /* center vertically */
+    padding: 2rem;
+}
+
+.no-chatgpt {
+    display: flex;
+    flex-direction: row;     /* text and image side by side */
+    align-items: center;
+    gap: 2rem;               /* space between text and image */
+    max-width: 900px;
+    width: 100%;
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     padding: 2rem;
-    max-width: 500px;          /* smaller content box */
-    width: 100%;               /* fills available space up to max-width */
-    text-align: center;
-    margin: 0 auto;            /* ensures it's centered */
+}
+
+.no-chatgpt .text {
+    flex: 1;
+}
+
+.no-chatgpt .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-chatgpt .image-container img {
+    max-height: 150px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Headings and links */
-h3 {
+h1, h3 {
     margin-bottom: 1rem;
-    color: #333;
 }
 
-h3 a {
-    color: #007acc;
-    text-decoration: none;
-}
-
-h3 a:hover {
-    text-decoration: underline;
-}
-
-/* Paragraphs */
 p {
     margin-bottom: 1rem;
     font-size: 1rem;
     line-height: 1.5;
-    word-wrap: break-word;     /* ensures text doesn't overflow */
+}
+
+/* Navigation styles applied to header only */
+.site-header {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+.site-header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.site-header nav li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background 0.3s, color 0.3s;
+}
+
+.site-header nav li a:hover {
+    background-color: #007acc;
+    border-radius: 6px;
+    color: #fff;
+}
+
+/* Footer styling */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 1em;
 }

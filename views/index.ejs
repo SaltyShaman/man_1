@@ -5,19 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
 
-    <link rel="stylesheet" href="/pages/frontend/index.css">
+    <!-- Global CSS for header/footer -->
+    <link rel="stylesheet" href="/global.css">
+
+    <!-- Page-specific CSS from man_1 -->
+    <% if (typeof css !== 'undefined' && css.length) { %>
+        <% css.forEach(function(file){ %>
+            <link rel="stylesheet" href="<%= file %>">
+        <% }) %>
+    <% } %>
 </head>
 <body>
+    <!-- Header with navigation -->
+    <%- include('partials/header', { title: title }) %>
+
     <main>
         <h1>Welcome to Mandatory 1</h1>
-        <h3>Please choose a topic:</h3>
+        <h3>Please choose a topic at the top of the page</h3>
 
-        <ul class="topic-list">
-            <li><a href="/web-server">How to start a web server</a></li>        
-            <li><a href="/no-chatgpt">How to not use ChatGPT</a></li>
-            <li><a href="/seperate">Separate backend and frontend</a></li>
-            <li><a href="/wishlist">Wishlist for elective</a></li>
-        </ul>
     </main>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
 </body>
 </html>

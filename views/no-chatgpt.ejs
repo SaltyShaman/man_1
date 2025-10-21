@@ -3,22 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>    
-    <link rel="stylesheet" href="/pages/no-chatgpt/chatGPTpicture.css">
-    <link rel="stylesheet" href="/pages/no-chatgpt/no-chatgpt.css">
+    <title><%= title %></title>
+
+    <!-- Global CSS for header/footer -->
+    <link rel="stylesheet" href="/global.css">
+
+    <!-- Page-specific CSS -->
+    <% if (typeof css !== 'undefined' && css.length) { %>
+        <% css.forEach(function(file){ %>
+            <link rel="stylesheet" href="<%= file %>">
+        <% }) %>
+    <% } %>
 </head>
 <body>
-    <main>
-        <h3><a href="/">Back to index</a></h3>
+    <!-- Header with navigation -->
+    <%- include('partials/header', { title: title }) %>
 
-        <h3>Here is where ChatGPT goes off the rail</h3>
-        <p>Don't refactor without thinking it through</p>
-        <p>AI will act like it is drunk or suddenly lost its memories</p>
-        <p>Conversations are not accessible across multiple conversations:</p>
-
-        <div class="image-container">
-            <img src="/pages/no-chatgpt/ChatGPT.png" alt="ChatGPT does not recognize other conversations from same user" />
+<main>
+    <section class="no-chatgpt">
+        <div class="text">
+            <h1>No ChatGPT</h1>
+            <h3>Here is where ChatGPT goes off the rail</h3>
+            <p>Don't refactor without thinking it through.</p>
+            <p>AI may act unpredictably or forget previous conversations.</p>
+            <p>Conversations are not accessible across multiple sessions.</p>
         </div>
-    </main>
+        <div class="image-container">
+            <img src="/pages/no-chatgpt/ChatGPT.png" alt="ChatGPT memory issue" />
+        </div>
+    </section>
+</main>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
 </body>
 </html>

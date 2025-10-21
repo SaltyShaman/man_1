@@ -1,4 +1,4 @@
-/* General body styling */
+/* public/web-server/web-server.css */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f9;
@@ -87,3 +87,5 @@ hr {
   border-top: 1px solid #ddd;
   margin: 30px 0;
 }
+
+
