@@ -36,18 +36,6 @@ man_1/
 
 > Links to each page are in the header.  
 
-## How to Run
-1. Install dependencies:
-
-```bash
-npm install
-
-nodemon app.js
-
-Open browser at:
-http://localhost:8080/
-
-
 ## Tech Stack
 
 Node.js 24
@@ -59,3 +47,15 @@ EJS ^3.1.10
 express-ejs-layouts ^2.5.1
 
 Note: This project is using ES modules ("type": "module" in package.json)
+
+## How to Run
+1. Install dependencies:
+
+```bash
+npm install
+
+nodemon app.js
+
+Open browser at:
+http://localhost:8080/
+
