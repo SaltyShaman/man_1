@@ -48,7 +48,7 @@ Open browser at:
 http://localhost:8080/
 
 
-Tech Stack
+## Tech Stack
 
 Node.js 24
 
