@@ -49,10 +49,10 @@ express-ejs-layouts ^2.5.1
 Note: This project is using ES modules ("type": "module" in package.json)
 
 ## How to Run
-1. Install dependencies:
 
 ```bash
 npm install
+
 
 nodemon app.js
 
